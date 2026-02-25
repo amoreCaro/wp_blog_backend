@@ -1,6 +1,6 @@
 export function estimateSinglePostReadTime() {
   const post = document.querySelector('.single-post');
-  const readTimeEl = document.querySelector('.single-post__read-time');
+  const readTimeEl = document.querySelector('.post__read-time');
 
   // ❗ Якщо потрібних елементів нема — просто виходимо
   if (!post || !readTimeEl) return;
