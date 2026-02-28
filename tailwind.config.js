@@ -4,6 +4,7 @@ module.exports = {
     "./src/html/*.html",
     "./*.php",
     "./app/**/*.php",
+    "../../**/*.php",
     "../**/*.php",
     "./src/js/**/*.js",
     "./src/css/**/*.css"
