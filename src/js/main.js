@@ -5,6 +5,7 @@ import { tabs } from './components/tabs.js';
 import { themeToggle } from './components/themeHandler.js';
 import { video } from './components/video.js';
 import { lazyLoadImages } from './components/lazyImages.js';
+import { pagination } from './components/pagination.js';
 
 document.addEventListener('DOMContentLoaded', function() {
   lazyLoadImages();
@@ -14,4 +15,5 @@ document.addEventListener('DOMContentLoaded', function() {
   calculateTotalPages();
   burgerMenu();
   estimateSinglePostReadTime();
+  pagination();
 });

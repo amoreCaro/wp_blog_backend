@@ -29,7 +29,7 @@ function initVideoButtons() {
         btn.addEventListener('click', e => {
             e.preventDefault();
             e.stopPropagation();
-            const src = btn.closest('.post__video')?.querySelector('video source')?.src;
+            const src = btn.closest('.post-main-video')?.querySelector('video source')?.src;
             if (!src) return;
             openModal(src);
         });
