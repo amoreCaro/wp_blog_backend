@@ -1,7 +1,6 @@
 const modal = document.getElementById('video-modal');
 const videoElement = document.getElementById('modal-video');
 
-/** Відкриття модала з відео */
 function openModal(videoSrc) {
     if (!modal || !videoElement) return;
     videoElement.querySelector('source').src = videoSrc;
@@ -9,7 +8,6 @@ function openModal(videoSrc) {
     modal.classList.add('isOpen');
 }
 
-/** Закриття модала */
 function closeModal() {
     if (!modal || !videoElement) return;
     modal.classList.remove('isOpen');
@@ -17,7 +15,6 @@ function closeModal() {
     videoElement.currentTime = 0;
 }
 
-/** Ініціалізація кнопок відтворення відео */
 function initVideoButtons() {
     const buttons = document.querySelectorAll('.post__video-play-button');
     if (!buttons.length) return;
@@ -36,7 +33,6 @@ function initVideoButtons() {
     });
 }
 
-/** Ініціалізація закриття модала */
 function initModalClose() {
     if (!modal) return;
 
@@ -48,7 +44,6 @@ function initModalClose() {
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
 }
 
-/** Експортована функція для старту відео-модала */
 export function video() {
     initVideoButtons();
     initModalClose();
