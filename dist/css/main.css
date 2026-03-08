@@ -899,6 +899,9 @@ video {
 .mt-auto{
   margin-top: auto;
 }
+.mt-\[100px\]{
+  margin-top: 100px;
+}
 .line-clamp-3{
   overflow: hidden;
   display: -webkit-box;
@@ -3442,4 +3445,7 @@ video {
 }
 .\[\&\.isOpen\]\:opacity-100.isOpen{
   opacity: 1;
+}
+.\[\&\:not\(\:first-child\)\]\:mt-\[100px\]:not(:first-child){
+  margin-top: 100px;
 }
