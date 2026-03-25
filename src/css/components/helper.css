@@ -74,7 +74,6 @@
   transition: filter 0.6s ease, transform 0.6s ease;
 }
 
-
 .lazy-img.is-loaded {
   filter: blur(0);
   transform: scale(1);
