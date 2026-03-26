@@ -9,6 +9,7 @@ module.exports = {
     "./src/js/**/*.js",
     "./src/css/**/*.css"
   ],
+    darkMode: 'class', 
 
   theme: {
     screens: {
@@ -23,7 +24,7 @@ module.exports = {
     container: {
       center: true,
       screens: {
-        DEFAULT: '1800px',
+        DEFAULT: '1280px',
       },
     },
     

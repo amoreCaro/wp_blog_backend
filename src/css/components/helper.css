@@ -16,8 +16,6 @@
   stroke: currentColor; 
 }
 
-/* --- Логіка для модифікатора navigation.navigation--white --- */
-
 /* 1. Скидання дефолтних параметрів (рамка та текст) */
 .navigation.navigation--white a {
     border-color: transparent !important;
@@ -73,6 +71,7 @@
   filter: blur(12px);
   transition: filter 0.6s ease, transform 0.6s ease;
 }
+
 
 .lazy-img.is-loaded {
   filter: blur(0);
