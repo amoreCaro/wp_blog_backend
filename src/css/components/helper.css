@@ -16,27 +16,33 @@
   stroke: currentColor; 
 }
 
-/* 1. Скидання дефолтних параметрів (рамка та текст) */
-.navigation.navigation--white a {
-    border-color: transparent !important;
-    color: rgba(0, 0, 0, 0.8) !important;
+.tab__link {
+  @apply inline-block pb-3 text-sm font-medium text-zinc-400 
+         hover:text-zinc-600 dark:hover:text-zinc-300 
+         transition-colors;
 }
 
-/* 2. Унікальні фони для посилань всередині navigation.navigation--white */
-.navigation.navigation--white li:nth-child(1) a { background-color: #E9F7DD; } /* Зеленуватий */
-.navigation.navigation--white li:nth-child(2) a { background-color: #FDF0D0; } /* Жовтуватий */
-.navigation.navigation--white li:nth-child(3) a { background-color: #E3EEEF; } /* Блакитний */
-.navigation.navigation--white li:nth-child(4) a { background-color: #EEE6FC; } /* Фіолетовий */
-
-/* 3. Ефект наведення для кольорового режиму */
-.navigation.navigation--white a:hover {
-    filter: brightness(0.96);
-    background-color: inherit; /* Вимикаємо білий фон Tailwind при ховері */
+.tab__link--active {
+  @apply font-semibold border-b-2 border-zinc-900 
+         dark:border-zinc-100 
+         text-zinc-900 dark:text-zinc-100
+         translate-y-[2px];
 }
 
-/* 4. Колір іконок всередині navigation.navigation--white */
-.navigation.navigation--white a svg {
-    color: rgba(0, 0, 0, 0.7);
+.invalid {
+  @apply border-red-500 ring-1 ring-red-500/50 bg-red-500/5 
+         dark:border-red-400 dark:ring-red-400/40 dark:bg-red-900/20;
+}
+
+/* Щоб іконка всередині теж підсвітилася червоним */
+.invalid svg {
+  @apply text-red-500 dark:text-red-400;
+}
+
+/* Стан фокусу: робимо бордюр ще яскравішим */
+.invalid:focus-within {
+  @apply dark:border-red-400 dark:bg-red-500/15;
+  outline: none;
 }
 
 .show {
@@ -44,10 +50,14 @@
   opacity: 1;
 }
 
-.h-flex {
-  @apply flex;
+.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
+.close {
+  @apply opacity-0 pointer-events-none;
+}
 .mobile {
   @apply md:hidden;
 }
@@ -67,11 +77,11 @@
   pointer-events: auto;
   transform: translateX(0);
 }
+
 .lazy-img {
   filter: blur(12px);
   transition: filter 0.6s ease, transform 0.6s ease;
 }
-
 
 .lazy-img.is-loaded {
   filter: blur(0);
@@ -109,7 +119,7 @@
 }
 
 .media-menu__tab.active {
-  @apply text-black after:scale-x-100;
+  @apply text-black dark:text-white after:scale-x-100;
 }
 
 .btn-back {
