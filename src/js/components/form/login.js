@@ -6,6 +6,7 @@ export function loginInit() {
     const submit = loginForm.querySelector('button[type="submit"]');
 
     const successMsg = loginForm.querySelector('.popup-success');
+    const infoMsg = loginForm.querySelector('.popup-info');
     const errorMsg = loginForm.querySelector('.popup-error');
     const errorText = loginForm.querySelector('.popup-error__text');
 
@@ -54,6 +55,11 @@ export function loginInit() {
 
         submit.disabled = true;
 
+        successMsg.classList.add("hidden");
+        errorMsg.classList.add("hidden");
+        infoMsg.classList.remove("hidden");
+
+        setTimeout(() => {
         fetch('/wp-admin/admin-ajax.php', {
             method: 'POST',
             headers: {
@@ -73,7 +79,7 @@ export function loginInit() {
         .then(data => {
 
             if (data.success) {
-
+                infoMsg.classList.add("hidden");
                 successMsg.classList.remove('hidden');
                 errorMsg.classList.add('hidden');
 
@@ -82,23 +88,24 @@ export function loginInit() {
                 }, 800);
 
             } else {
-
+                infoMsg.classList.add("hidden");
                 successMsg.classList.add('hidden');
                 errorMsg.classList.remove('hidden');
 
-                errorText.textContent = data?.data?.message || 'Login failed';
+                errorText.textContent = data?.data?.message;
 
                 submit.disabled = false;
             }
         })
         .catch(err => {
             console.error(err);
-
+            infoMsg.classList.add("hidden");
             successMsg.classList.add('hidden');
             errorMsg.classList.remove('hidden');
             errorText.textContent = 'Server error';
 
             submit.disabled = false;
         });
+    }, 2000);
     });
 }
