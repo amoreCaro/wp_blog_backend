@@ -25,8 +25,13 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader'
+        ],
       },
+
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
@@ -34,7 +39,7 @@ module.exports = {
           filename: 'images/[name][ext]',
         },
       },
-      // Rule for handling video files if imported in JS
+
       {
         test: /\.(mp4|webm|ogg)$/i,
         type: 'asset/resource',
@@ -47,13 +52,12 @@ module.exports = {
 
   plugins: [
     new RemoveEmptyScriptsPlugin(),
-    
+
     new MiniCssExtractPlugin({
       filename: 'css/main.css',
     }),
 
-    // Генеруємо HtmlWebpackPlugin для всіх HTML файлів автоматично
-    ...htmlFiles.map(file => 
+    ...htmlFiles.map(file =>
       new HtmlWebpackPlugin({
         template: `./src/html/${file}`,
         filename: file,
@@ -63,16 +67,15 @@ module.exports = {
 
     new CopyPlugin({
       patterns: [
-        { 
-          from: path.resolve(__dirname, 'src/images'), 
+        {
+          from: path.resolve(__dirname, 'src/images'),
           to: path.resolve(__dirname, 'dist/images'),
-          noErrorOnMissing: true 
+          noErrorOnMissing: true,
         },
-        // Pattern to copy video files to the build folder
-        { 
-          from: path.resolve(__dirname, 'src/video'), 
+        {
+          from: path.resolve(__dirname, 'src/video'),
           to: path.resolve(__dirname, 'dist/video'),
-          noErrorOnMissing: true 
+          noErrorOnMissing: true,
         },
       ],
     }),

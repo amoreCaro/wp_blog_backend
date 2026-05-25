@@ -44,6 +44,8 @@ function initModalClose() {
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
 }
 
+
+
 export function video() {
     initVideoButtons();
     initModalClose();

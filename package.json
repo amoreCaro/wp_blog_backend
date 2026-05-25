@@ -4,6 +4,7 @@
     "start": "webpack --watch"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4",
     "autoprefixer": "^10.4.23",
     "copy-webpack-plugin": "^13.0.1",
     "css-loader": "^6",
@@ -17,5 +18,8 @@
     "webpack": "^5",
     "webpack-cli": "^5",
     "webpack-remove-empty-scripts": "^1.1.1"
+  },
+  "dependencies": {
+    "swiper": "^12.1.4"
   }
 }

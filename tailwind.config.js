@@ -10,7 +10,6 @@ module.exports = {
     "./src/css/**/*.css"
   ],
     darkMode: 'class', 
-
   theme: {
     screens: {
       sm: '640px',
@@ -27,10 +26,10 @@ module.exports = {
         DEFAULT: '1280px',
       },
     },
-    
     extend: {
       colors: {
         gray: '#9395ABCC',
+        blush: '#FFF1F2',
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],

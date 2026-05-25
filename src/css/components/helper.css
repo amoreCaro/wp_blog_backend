@@ -34,6 +34,7 @@
          dark:border-red-400 dark:ring-red-400/40 dark:bg-red-900/20;
 }
 
+
 /* Щоб іконка всередині теж підсвітилася червоним */
 .invalid svg {
   @apply text-red-500 dark:text-red-400;
@@ -85,7 +86,6 @@
 
 .lazy-img.is-loaded {
   filter: blur(0);
-  transform: scale(1);
 }
 
 .h-fixed {
@@ -206,5 +206,37 @@
 
   &.is-paused .post__video-play-button {
     @apply opacity-100 pointer-events-auto;
+  }
+}
+
+.post-card__loading {
+  gap: 10px;
+}
+
+.post-card__loading .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #fff;
+  animation: dotBounce 1.4s ease-in-out infinite;
+}
+
+.post-card__loading .dot:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.post-card__loading .dot:nth-child(3) {
+  animation-delay: .4s;
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: .3;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
